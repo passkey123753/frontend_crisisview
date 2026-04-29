@@ -26,7 +26,7 @@ pipeline {
                         -Dsonar.projectKey=frontend_crisisview \
                         -Dsonar.sources=. \
                         -Dsonar.exclusions=node_modules/**,.next/**,coverage/** \
-                        -Dsonar.host.url=http://crisis_sonarqube:9000 \
+                        -Dsonar.host.url=http://crisis-sonarqube:9000 \
                         -Dsonar.login=$SONAR_TOKEN
                 '''
             }
