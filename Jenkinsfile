@@ -19,15 +19,12 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 sh '''
-                    docker run --rm --network crisisview_default \
-                        -v $(pwd):/usr/src \
-                        -w /usr/src \
-                        sonarsource/sonar-scanner-cli:4.6 \
+                    sonar-scanner \
                         -Dsonar.projectKey=frontend_crisisview \
                         -Dsonar.sources=. \
                         -Dsonar.exclusions=node_modules/**,.next/**,coverage/** \
                         -Dsonar.host.url=http://crisis-sonarqube:9000 \
-                        -Dsonar.login=$SONAR_TOKEN
+                        -Dsonar.login=$SONAR_TOKEN_FRONT
                 '''
             }
         }
